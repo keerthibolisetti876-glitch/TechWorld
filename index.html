@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechWorld - Electronics & Gadgets</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="logo">
+            <span>⚡</span> TechWorld
+        </div>
+
+        <nav class="navbar">
+            <a href="#home">Home</a>
+            <a href="#categories">Categories</a>
+            <a href="#products">Products</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+            <button class="icon-btn" onclick="openLogin()">👤</button>
+            <button class="cart-btn" onclick="openCart()">
+                🛒 Cart <span id="cartCount">0</span>
+            </button>
+        </div>
+    </header>
+
+
+    <!-- HOME -->
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+            <p class="small-title">WELCOME TO TECHWORLD</p>
+
+            <h1>
+                Upgrade Your World<br>
+                With <span>Smart Technology</span>
+            </h1>
+
+            <p class="hero-text">
+                Discover the latest electronics, gadgets and accessories
+                at amazing prices.
+            </p>
+
+            <div class="search-box">
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search smartphones, laptops, headphones..."
+                    onkeyup="searchProducts()"
+                >
+                <button onclick="searchProducts()">🔍 Search</button>
+            </div>
+
+            <button class="shop-btn" onclick="goToProducts()">
+                Shop Now →
+            </button>
+        </div>
+
+        <div class="hero-card">
+            <div class="hero-circle">📱</div>
+            <h3>Latest Gadgets</h3>
+            <p>Technology made simple.</p>
+        </div>
+
+    </section>
+
+
+    <!-- CATEGORIES -->
+    <section id="categories" class="section">
+
+        <div class="section-heading">
+            <p>EXPLORE</p>
+            <h2>Shop By Category</h2>
+            <span>Find the perfect technology for you</span>
+        </div>
+
+        <div class="category-grid">
+
+            <div class="category-card" onclick="filterCategory('Smartphones')">
+                <div class="category-icon">📱</div>
+                <h3>Smartphones</h3>
+                <p>Latest mobile phones</p>
+            </div>
+
+            <div class="category-card" onclick="filterCategory('Laptops')">
+                <div class="category-icon">💻</div>
+                <h3>Laptops</h3>
+                <p>Powerful laptops</p>
+            </div>
+
+            <div class="category-card" onclick="filterCategory('Audio')">
+                <div class="category-icon">🎧</div>
+                <h3>Audio</h3>
+                <p>Headphones & speakers</p>
+            </div>
+
+            <div class="category-card" onclick="filterCategory('Wearables')">
+                <div class="category-icon">⌚</div>
+                <h3>Wearables</h3>
+                <p>Smart watches</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRODUCTS -->
+    <section id="products" class="section products-section">
+
+        <div class="section-heading">
+            <p>OUR STORE</p>
+            <h2>Featured Products</h2>
+            <span>Quality products at great prices</span>
+        </div>
+
+        <div class="filter-buttons">
+            <button class="filter active" onclick="showAllProducts()">All</button>
+            <button class="filter" onclick="filterCategory('Smartphones')">Smartphones</button>
+            <button class="filter" onclick="filterCategory('Laptops')">Laptops</button>
+            <button class="filter" onclick="filterCategory('Audio')">Audio</button>
+            <button class="filter" onclick="filterCategory('Wearables')">Wearables</button>
+        </div>
+
+
+        <div class="product-grid" id="productGrid">
+
+            <!-- PRODUCT 1 -->
+            <div class="product-card" data-category="Smartphones">
+
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80"
+                         alt="Smartphone">
+                    <span class="badge">NEW</span>
+                </div>
+
+                <div class="product-info">
+                    <p class="product-category">Smartphones</p>
+                    <h3>SmartPhone Pro X</h3>
+
+                    <div class="rating">★★★★★ <span>(124)</span></div>
+
+                    <div class="price-row">
+                        <strong>₹49,999</strong>
+                        <del>₹59,999</del>
+                    </div>
+
+                    <button class="add-btn"
+                        onclick="addToCart('SmartPhone Pro X', 49999)">
+                        Add to Cart
+                    </button>
+
+                    <button class="details-btn"
+                        onclick="showProduct('SmartPhone Pro X',49999,'Smartphones')">
+                        View Details
+                    </button>
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 2 -->
+            <div class="product-card" data-category="Laptops">
+
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=600&q=80"
+                         alt="Laptop">
+                    <span class="badge">HOT</span>
+                </div>
+
+                <div class="product-info">
+                    <p class="product-category">Laptops</p>
+                    <h3>UltraBook Air 14</h3>
+
+                    <div class="rating">★★★★★ <span>(98)</span></div>
+
+                    <div class="price-row">
+                        <strong>₹74,999</strong>
+                        <del>₹84,999</del>
+                    </div>
+
+                    <button class="add-btn"
+                        onclick="addToCart('UltraBook Air 14',74999)">
+                        Add to Cart
+                    </button>
+
+                    <button class="details-btn"
+                        onclick="showProduct('UltraBook Air 14',74999,'Laptops')">
+                        View Details
+                    </button>
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 3 -->
+            <div class="product-card" data-category="Audio">
+
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80"
+                         alt="Headphones">
+                    <span class="badge">SALE</span>
+                </div>
+
+                <div class="product-info">
+                    <p class="product-category">Audio</p>
+                    <h3>NoiseBeat Headphones</h3>
+
+                    <div class="rating">★★★★★ <span>(210)</span></div>
+
+                    <div class="price-row">
+                        <strong>₹3,999</strong>
+                        <del>₹5,999</del>
+                    </div>
+
+                    <button class="add-btn"
+                        onclick="addToCart('NoiseBeat Headphones',3999)">
+                        Add to Cart
+                    </button>
+
+                    <button class="details-btn"
+                        onclick="showProduct('NoiseBeat Headphones',3999,'Audio')">
+                        View Details
+                    </button>
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 4 -->
+            <div class="product-card" data-category="Wearables">
+
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80"
+                         alt="Smart Watch">
+                    <span class="badge">NEW</span>
+                </div>
+
+                <div class="product-info">
+                    <p class="product-category">Wearables</p>
+                    <h3>SmartWatch Elite</h3>
+
+                    <div class="rating">★★★★★ <span>(156)</span></div>
+
+                    <div class="price-row">
+                        <strong>₹5,499</strong>
+                        <del>₹7,499</del>
+                    </div>
+
+                    <button class="add-btn"
+                        onclick="addToCart('SmartWatch Elite',5499)">
+                        Add to Cart
+                    </button>
+
+                    <button class="details-btn"
+                        onclick="showProduct('SmartWatch Elite',5499,'Wearables')">
+                        View Details
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+    <section class="features">
+
+        <div class="feature">
+            <span>🚚</span>
+            <div>
+                <h3>Free Delivery</h3>
+                <p>On orders above ₹999</p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <span>🔒</span>
+            <div>
+                <h3>Secure Payment</h3>
+                <p>100% secure checkout</p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <span>↩️</span>
+            <div>
+                <h3>Easy Returns</h3>
+                <p>7 days return policy</p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <span>🎧</span>
+            <div>
+                <h3>24/7 Support</h3>
+                <p>We're here to help</p>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about" class="section about">
+
+        <div class="about-content">
+
+            <div class="about-text">
+                <p>ABOUT TECHWORLD</p>
+                <h2>Your Trusted Electronics Store</h2>
+
+                <p>
+                    TechWorld is a modern online electronics store where
+                    customers can discover smartphones, laptops, audio
+                    devices, smart watches and other useful gadgets.
+                </p>
+
+                <p>
+                    Our goal is to make technology easy, affordable and
+                    accessible for everyone.
+                </p>
+
+                <button class="shop-btn" onclick="goToProducts()">
+                    Explore Products →
+                </button>
+            </div>
+
+            <div class="about-box">
+                <div>⚡</div>
+                <h3>Smart Shopping</h3>
+                <p>Simple • Secure • Fast</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact">
+
+        <div class="section-heading">
+            <p>GET IN TOUCH</p>
+            <h2>Contact Us</h2>
+            <span>We would love to hear from you</span>
+        </div>
+
+        <div class="contact-container">
+
+            <div class="contact-info">
+                <h3>Let's Talk</h3>
+
+                <p>📧 support@techworld.com</p>
+                <p>📞 +91 98765 43210</p>
+                <p>📍 Hyderabad, India</p>
+
+            </div>
+
+            <form class="contact-form" onsubmit="sendMessage(event)">
+
+                <input type="text" placeholder="Your Name" required>
+
+                <input type="email" placeholder="Your Email" required>
+
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+
+                <button type="submit" class="shop-btn">
+                    Send Message
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="footer-logo">
+            ⚡ TechWorld
+        </div>
+
+        <p>
+            © 2026 TechWorld. Electronics & Gadgets.
+        </p>
+
+        <div class="social">
+            🌐 &nbsp; 📘 &nbsp; 📸 &nbsp; ▶️
+        </div>
+
+    </footer>
+
+
+    <!-- CART MODAL -->
+    <div class="modal" id="cartModal">
+
+        <div class="modal-content">
+
+            <button class="close" onclick="closeCart()">×</button>
+
+            <h2>🛒 Shopping Cart</h2>
+
+            <div id="cartItems">
+                <p class="empty-cart">Your cart is empty.</p>
+            </div>
+
+            <div class="cart-total">
+                <strong>Total:</strong>
+                <strong id="cartTotal">₹0</strong>
+            </div>
+
+            <button class="shop-btn full-btn" onclick="checkout()">
+                Proceed to Checkout
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- LOGIN MODAL -->
+    <div class="modal" id="loginModal">
+
+        <div class="modal-content login-box">
+
+            <button class="close" onclick="closeLogin()">×</button>
+
+            <h2>👤 Welcome Back</h2>
+            <p>Login to your TechWorld account</p>
+
+            <form onsubmit="loginUser(event)">
+
+                <input type="email" placeholder="Email Address" required>
+
+                <input type="password" placeholder="Password" required>
+
+                <button class="shop-btn full-btn" type="submit">
+                    Login
+                </button>
+
+            </form>
+
+            <p class="register-text">
+                Don't have an account?
+                <b onclick="registerUser()">Register</b>
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- PRODUCT DETAILS MODAL -->
+    <div class="modal" id="productModal">
+
+        <div class="modal-content product-detail">
+
+            <button class="close" onclick="closeProduct()">×</button>
+
+            <div class="detail-icon">📦</div>
+
+            <p id="detailCategory">Category</p>
+
+            <h2 id="detailName">Product Name</h2>
+
+            <h3 id="detailPrice">₹0</h3>
+
+            <p>
+                Premium quality product with modern features,
+                reliable performance and excellent value.
+            </p>
+
+            <button class="shop-btn full-btn" onclick="addDetailToCart()">
+                Add To Cart
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- CHECKOUT MODAL -->
+    <div class="modal" id="checkoutModal">
+
+        <div class="modal-content">
+
+            <button class="close" onclick="closeCheckout()">×</button>
+
+            <h2>💳 Checkout</h2>
+
+            <form onsubmit="placeOrder(event)">
+
+                <input type="text" placeholder="Full Name" required>
+
+                <input type="text" placeholder="Mobile Number" required>
+
+                <input type="text" placeholder="Delivery Address" required>
+
+                <select required>
+                    <option value="">Select Payment Method</option>
+                    <option>UPI</option>
+                    <option>Credit / Debit Card</option>
+                    <option>Cash on Delivery</option>
+                </select>
+
+                <button class="shop-btn full-btn" type="submit">
+                    Place Order
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+</html>
